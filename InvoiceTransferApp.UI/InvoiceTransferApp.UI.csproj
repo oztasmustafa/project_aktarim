@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <ApplicationIcon />
+    <StartupObject>InvoiceTransferApp.UI.Program</StartupObject>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyTitle>Fatura Aktarım Uygulaması</AssemblyTitle>
+    <Product>InvoiceTransferApp.UI</Product>
+    <Company>S4IN A.Ş.</Company>
+    <Copyright>Copyright © 2025</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <RootNamespace>InvoiceTransferApp.UI</RootNamespace>
+    <AssemblyName>InvoiceTransferApp.UI</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.2" />
+    
+    <!-- AutoMapper -->
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InvoiceTransferApp.Core\InvoiceTransferApp.Core.csproj" />
+    <ProjectReference Include="..\InvoiceTransferApp.Service\InvoiceTransferApp.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Yazılım şirketi logosu - exe ile aynı klasöre kopyalanır, formda gösterilir -->
+    <Content Include="Assets\logo.png" Link="logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="InvoiceTransferApp.Core/InvoiceTransferApp.Core.csproj" />
+  <Project Path="InvoiceTransferApp.Repository/InvoiceTransferApp.Repository.csproj" />
+  <Project Path="InvoiceTransferApp.Service/InvoiceTransferApp.Service.csproj" />
+  <Project Path="InvoiceTransferApp.UI/InvoiceTransferApp.UI.csproj" />
+</Solution>
