@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using InvoiceTransferApp.Core.DTO;
 
 namespace InvoiceTransferApp.Core.Interfaces
@@ -15,6 +16,7 @@ namespace InvoiceTransferApp.Core.Interfaces
         
         // Command operations
         string TransferInvoice(int invoiceId, string targetCompanyCode);
+        Task<string> TransferInvoiceAsync(int invoiceId, string targetCompanyCode);
         bool ValidateInvoice(InvoiceDto invoice);
     }
 }

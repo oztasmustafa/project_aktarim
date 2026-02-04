@@ -1,0 +1,114 @@
+2026-02-03 19:59:01
+{
+  "SIPDEPOKODKULLAN": 0,
+  "Seri": "ALI",
+  "FatUst": {
+    "Sube_Kodu": 0,
+    "CariKod": "MUS.1974",
+    "Tarih": "2026-01-06 00:00:00",
+    "FIYATTARIHI": "2026-01-06 00:00:00",
+    "Tip": 1,
+    "TIPI": 1,
+    "SIPDEPOKODKULLAN": 0
+  },
+  "KayitliNumaraOtomatikGuncellensin": true,
+  "SeriliHesapla": true,
+  "Kalems": [
+    {
+      "StokKodu": "INV-C-022",
+      "STra_GCMIK": 20.0,
+      "STra_NF": 10740.6,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "INV-C-022",
+      "STra_GCMIK": 5.0,
+      "STra_NF": 11814.66,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "FAT-M-002",
+      "STra_GCMIK": 13.0,
+      "STra_NF": 1812.93,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "FAT-M-002",
+      "STra_GCMIK": 2.0,
+      "STra_NF": 1994.22,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "VTS-B-004",
+      "STra_GCMIK": 20.0,
+      "STra_NF": 703.11,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "VTS-B-004",
+      "STra_GCMIK": 1.0,
+      "STra_NF": 773.42,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "VTS-H-002",
+      "STra_GCMIK": 20.0,
+      "STra_NF": 358.15,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    },
+    {
+      "StokKodu": "VTS-H-002",
+      "STra_GCMIK": 1.0,
+      "STra_NF": 393.97,
+      "STra_BF": 0.0,
+      "STra_ACIKLAMA": "MUS.1974",
+      "STra_DOVTIP": "0",
+      "STra_DOVFIAT": 0.0,
+      "DEPO_KODU": 0,
+      "ReferansKodu": "",
+      "ProjeKodu": ""
+    }
+  ]
+}

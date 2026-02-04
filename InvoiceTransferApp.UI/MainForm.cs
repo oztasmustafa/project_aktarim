@@ -660,7 +660,7 @@ namespace InvoiceTransferApp.UI
 
         #region Transfer Methods
 
-        private void TransferToNetsis()
+        private async System.Threading.Tasks.Task TransferToNetsisAsync()
         {
             try
             {
@@ -674,6 +674,10 @@ namespace InvoiceTransferApp.UI
                 if (MessageBox.Show($"{selectedIds.Count} adet fatura Netsis'e aktarılacak. Devam etmek istiyor musunuz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
 
+                // Butonu devre dışı bırak
+                btnTransfer.Enabled = false;
+                btnTransfer.Text = "Aktarılıyor...";
+
                 int successCount = 0, failureCount = 0;
                 var errors = new List<string>();
 
@@ -682,7 +686,7 @@ namespace InvoiceTransferApp.UI
                     try
                     {
                         var invoiceDto = _invoiceList?.FirstOrDefault(x => x.Id == invoiceId);
-                        string netsisReferenceNo = _invoiceService.TransferInvoice(invoiceId, TARGET_COMPANY);
+                        string netsisReferenceNo = await _invoiceService.TransferInvoiceAsync(invoiceId, TARGET_COMPANY);
                         if (invoiceDto != null)
                         {
                             invoiceDto.IsTransferredToNetsis = true;
@@ -712,6 +716,12 @@ namespace InvoiceTransferApp.UI
             {
                 MessageBox.Show($"Aktarım sırasında hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                // Butonu tekrar etkinleştir
+                btnTransfer.Enabled = true;
+                btnTransfer.Text = "Aktar";
+            }
         }
 
         private List<int> GetSelectedInvoiceIds()
@@ -737,7 +747,7 @@ namespace InvoiceTransferApp.UI
         #region Event Handlers
 
         private void BtnGetInvoices_Click(object sender, EventArgs e) => GetSalesInvoices();
-        private void BtnTransfer_Click(object sender, EventArgs e) => TransferToNetsis();
+        private async void BtnTransfer_Click(object sender, EventArgs e) => await TransferToNetsisAsync();
         private void TxtSearch_TextChanged(object sender, EventArgs e) => ApplyFilters();
         private void CmbStatus_SelectedIndexChanged(object sender, EventArgs e) => ApplyFilters();
 

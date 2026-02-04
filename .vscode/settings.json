@@ -1,3 +1,4 @@
 {
-  "files.exclude": {}
+  "files.exclude": {},
+  "dotnet.defaultSolution": "project_aktarim.sln"
 }

@@ -1,0 +1,3 @@
+2026-02-04 10:49:41
+Token HTTP Error: 400 BadRequest
+Body: {"error":"invalid_grant","error_description":"Hata Kodu : 700\r\nDetay : Login result : SsoActivationExpired Lisans yenileme süreniz dolmuştur.\r\n\r\n<ErrorHeader>\r\nError Time : 2/4/2026 10:49:32 AM\r\nKernel Version : 9.0.63.0\r\nKernel Address : 0BF0CF04\r\nObject Address : 0BF273E0\r\nObject Name : NXObj_TSirket0BF273E0\r\nClass Name : TSirket\r\n</ErrorHeader>\r\n<Hata>\r\nKullanıcı kontrol işlemi sırasında hata oluştu | NetOpenX50.Kernel"}
