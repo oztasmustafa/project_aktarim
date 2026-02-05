@@ -203,7 +203,6 @@ namespace InvoiceTransferApp.Service.Services
 
             return new ItemSlipsRequestDto
             {
-                SIPDEPOKODKULLAN = 1,
                 Seri = string.IsNullOrWhiteSpace(fatura.Seri) ? "F" : fatura.Seri,
                 KayitliNumaraOtomatikGuncellensin = true,
                 SeriliHesapla = true,

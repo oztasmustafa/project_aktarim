@@ -5,7 +5,6 @@ namespace InvoiceTransferApp.Core.DTO
 {
     public class ItemSlipsRequestDto
     {
-        public int SIPDEPOKODKULLAN { get; set; } = 1;
         public string Seri { get; set; }
         public ItemSlipsFatUstDto FatUst { get; set; }
         public bool KayitliNumaraOtomatikGuncellensin { get; set; }
