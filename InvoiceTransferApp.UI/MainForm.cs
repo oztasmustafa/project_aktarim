@@ -602,27 +602,47 @@ namespace InvoiceTransferApp.UI
             });
         }
 
-        private void GetSalesInvoices()
+        private async System.Threading.Tasks.Task GetSalesInvoicesAsync()
         {
+            DateTime startDate = dateStartDate.Value.Date;
+            DateTime endDate = dateEndDate.Value.Date;
+
+            if (startDate > endDate)
+            {
+                MessageBox.Show("Başlangıç tarihi bitiş tarihinden büyük olamaz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // UI'ı kilitle ve "Yükleniyor" göster
+            btnGetInvoices.Enabled = false;
+            btnGetInvoices.Text = "Yükleniyor...";
+            this.Text = "Fatura Aktarım - Yükleniyor...";
+
             try
             {
-                DateTime startDate = dateStartDate.Value.Date;
-                DateTime endDate = dateEndDate.Value.Date;
-
-                if (startDate > endDate)
+                // Arka planda çalıştır - UI donmasın
+                var result = await System.Threading.Tasks.Task.Run(() =>
                 {
-                    MessageBox.Show("Başlangıç tarihi bitiş tarihinden büyük olamaz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    try
+                    {
+                        return GetInvoicesFromNetsis(startDate, endDate);
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"GetInvoicesFromNetsis HATA: {ex.Message}");
+                        return null;
+                    }
+                });
 
-                _invoiceList = GetInvoicesFromNetsis(startDate, endDate);
-                if (_invoiceList == null || _invoiceList.Count == 0)
+                _invoiceList = result ?? new List<InvoiceDto>();
+
+                if (_invoiceList.Count == 0)
                 {
-                    _invoiceList = new List<InvoiceDto>();
                     gridInvoices.DataSource = _mapper.Map<List<InvoiceListViewModel>>(_invoiceList);
                     _selectedRowIndices.Clear();
+                    this.Text = "Fatura Aktarım - Veri yok";
                     MessageBox.Show(
-                        "Seçilen tarih aralığında fatura bulunamadı.\n\nNot: Netsis entegrasyonu henüz tamamlanmadıysa,\nfaturalar görüntülenemez.",
+                        "Seçilen tarih aralığında fatura bulunamadı.\n\nNot: Netsis veritabanına erişimi kontrol edin.",
                         "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -647,7 +667,14 @@ namespace InvoiceTransferApp.UI
             }
             catch (Exception ex)
             {
+                this.Text = "Fatura Aktarım - Hata";
                 MessageBox.Show($"Faturalar getirilirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // UI'ı geri aç
+                btnGetInvoices.Enabled = true;
+                btnGetInvoices.Text = "Getir";
             }
         }
 
@@ -746,7 +773,7 @@ namespace InvoiceTransferApp.UI
 
         #region Event Handlers
 
-        private void BtnGetInvoices_Click(object sender, EventArgs e) => GetSalesInvoices();
+        private async void BtnGetInvoices_Click(object sender, EventArgs e) => await GetSalesInvoicesAsync();
         private async void BtnTransfer_Click(object sender, EventArgs e) => await TransferToNetsisAsync();
         private void TxtSearch_TextChanged(object sender, EventArgs e) => ApplyFilters();
         private void CmbStatus_SelectedIndexChanged(object sender, EventArgs e) => ApplyFilters();

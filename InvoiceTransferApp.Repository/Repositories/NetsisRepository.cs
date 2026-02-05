@@ -419,7 +419,9 @@ INSERT INTO TBLSTHAR (
             try
             {
                 var i = reader.GetOrdinal(colName);
-                return reader.IsDBNull(i) ? null : reader.GetString(i);
+                if (reader.IsDBNull(i)) return null;
+                var value = reader.GetValue(i);
+                return value == null ? null : Convert.ToString(value);
             }
             catch { return null; }
         }
